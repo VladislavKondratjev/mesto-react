@@ -1,20 +1,4 @@
-export default function Main() {
-    function handleEditAvatarClick() {
-        document.querySelector('.popup_type_update-avavtar').classList.add('popup_opened');
-        // document.addEventListener('keydown', this._closePopupEsc);
-        // this._popupSelector.addEventListener('mousedown', this._closePopupOverlay);
-    }
-    function handleEditProfileClick() {
-        document.querySelector('.popup_type_edit').classList.add('popup_opened');
-        // document.addEventListener('keydown', this._closePopupEsc);
-        // this._popupSelector.addEventListener('mousedown', this._closePopupOverlay);
-    }
-    function handleAddPlaceClick() {
-        document.querySelector('.popup_type_add-card').classList.add('popup_opened');
-        // document.addEventListener('keydown', this._closePopupEsc);
-        // this._popupSelector.addEventListener('mousedown', this._closePopupOverlay);
-    }
-
+export default function Main(props) {
     return (
         <main>
             <section className="profile">
@@ -23,7 +7,7 @@ export default function Main() {
                         className="profile__avatar"
                         src="#"
                         alt="Аватар"
-                        onClick={handleEditAvatarClick}
+                        onClick={props.onEditAvatar}
                     />
                 </div>
                 <div className="profile__info">
@@ -32,7 +16,7 @@ export default function Main() {
                         <button
                             type="button"
                             className="profile__edit-button button"
-                            onClick={handleEditProfileClick}
+                            onClick={props.onEditProfile}
                         ></button>
                     </div>
                     <p className="profile__description">123</p>
@@ -40,7 +24,7 @@ export default function Main() {
                 <button
                     type="button"
                     className="profile__add-button button"
-                    onClick={handleAddPlaceClick}
+                    onClick={props.onAddPlace}
                 ></button>
             </section>
             <section className="elements"></section>
