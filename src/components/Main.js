@@ -1,4 +1,4 @@
-import api from "../utils/api";
+import { api } from "../utils/api";
 import React from 'react';
 import Card from './Card.js';
 
