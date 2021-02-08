@@ -1,7 +1,6 @@
 .popup__image {
   cursor: default;
   object-fit: contain;
-  /* height: 100%; */
   width: auto;
   max-width: 75vw;
   max-height: 75vh;
