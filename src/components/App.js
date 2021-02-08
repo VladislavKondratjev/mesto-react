@@ -48,6 +48,7 @@ export default function App() {
           onCardClick={handleCardClick}
         />
         <Footer />
+        <ImagePopup name="image-caption" isOpen={selectedCard} card={selectedCard} onClose={closeAllPopups} />
         <PopupWithForm title="Редактировать профиль" name="edit" isOpen={editIsOpen} onClose={closeAllPopups}>
           <input
             id="name"
@@ -127,7 +128,6 @@ export default function App() {
             </button>
           </div>
         </PopupWithForm>
-        <ImagePopup name="image-caption" isOpen={selectedCard} card={selectedCard} onClose={closeAllPopups} />
       </div>
     </div >
   );
