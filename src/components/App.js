@@ -7,9 +7,9 @@ import ImagePopup from './ImagePopup.js'
 
 
 export default function App() {
-  const [avatarIsOpen, setAvatarIsOpen] = React.useState(false);
-  const [addIsOpen, setAddIsOpen] = React.useState(false);
-  const [editIsOpen, setEditIsOpen] = React.useState(false);
+  const [isEditAvatarPopupOpen, setAvatarIsOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setAddIsOpen] = React.useState(false);
+  const [isEditProfilePopupOpen, setEditIsOpen] = React.useState(false);
   const [confirmIsOpen, setConfirmIsOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState(false);
   function handleEditAvatarClick() {
@@ -49,7 +49,7 @@ export default function App() {
         />
         <Footer />
         <ImagePopup name="image-caption" isOpen={selectedCard} card={selectedCard} onClose={closeAllPopups} />
-        <PopupWithForm title="Редактировать профиль" name="edit" isOpen={editIsOpen} onClose={closeAllPopups}>
+        <PopupWithForm title="Редактировать профиль" name="edit" isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
           <input
             id="name"
             autoComplete="off"
@@ -77,7 +77,7 @@ export default function App() {
             Сохранить
             </button>
         </PopupWithForm >
-        <PopupWithForm title="Новое место" name="add-card" isOpen={addIsOpen} onClose={closeAllPopups}>
+        <PopupWithForm title="Новое место" name="add-card" isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
           <input
             id="place"
             type="text"
@@ -102,7 +102,7 @@ export default function App() {
           <span id="url-error" className="error"></span>
           <button type="submit" className="popup__submit-button">Создать</button>
         </PopupWithForm>
-        <PopupWithForm title="Обновить аватар" name="update-avavtar" isOpen={avatarIsOpen} onClose={closeAllPopups}>
+        <PopupWithForm title="Обновить аватар" name="update-avavtar" isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>
           <input
             id="link"
             autoComplete="off"
