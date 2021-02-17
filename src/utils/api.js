@@ -15,6 +15,7 @@ class Api {
         return fetch(`${this._address}/cards`, {
             headers: {
                 authorization: this._token,
+                'Content-Type': 'application/json'
             }
         })
             .then((res) => this._apiAnswer(res))
@@ -107,9 +108,13 @@ class Api {
             .then((res) => this._apiAnswer(res))
     }
 
+    changeLikeCardStatus(id, state) {
+        return state ? this.putLike(id) : this.deleteLike(id)
+    }
+
 }
 
-export default const api = new Api({
+export const api = new Api({
     address: 'https://mesto.nomoreparties.co/v1/cohort-19',
     token: 'cabe1d76-a428-4aaa-846e-7d735d853b84'
 })

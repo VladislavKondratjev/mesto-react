@@ -1,28 +1,18 @@
 import { api } from "../utils/api";
 import React from 'react';
 import Card from './Card.js';
+import { CurrentUserContext } from '../constexts/CurrentUserContext'
 
 export default function Main(props) {
-    const [userAvatar, setUserAvatar] = React.useState('');
-    const [userName, setUserName] = React.useState('');
-    const [userDescription, setUserDescription] = React.useState('');
-    const [cards, setCards] = React.useState([]);
+    const { currentUser } = React.useContext(CurrentUserContext)
 
-    React.useEffect(() => {
-        api.getUserData()
-            .then((res) => {
-                setUserAvatar(res.avatar)
-                setUserName(res.name)
-                setUserDescription(res.about)
-            })
-            .catch((err) => console.log(err));
-
-        api.getInitialCards()
-            .then((res) => {
-                setCards(res);
-            })
-            .catch((err) => console.log(err));
-    }, [])
+    // React.useEffect(() => {
+    //     api.getInitialCards()
+    //         .then((res) => {
+    //             setCards(res);
+    //         })
+    //         .catch((err) => console.log(err));
+    // }, [])
 
     return (
         <main>
@@ -30,21 +20,21 @@ export default function Main(props) {
                 <div className="profile__overlay">
                     <img
                         className="profile__avatar"
-                        src={userAvatar}
+                        src={currentUser.avatar}
                         alt="Аватар"
                         onClick={props.onEditAvatar}
                     />
                 </div>
                 <div className="profile__info">
                     <div className="profile__editor">
-                        <h1 className="profile__name">{userName}</h1>
+                        <h1 className="profile__name">{currentUser.name}</h1>
                         <button
                             type="button"
                             className="profile__edit-button button"
                             onClick={props.onEditProfile}
                         ></button>
                     </div>
-                    <p className="profile__description">{userDescription}</p>
+                    <p className="profile__description">{currentUser.about}</p>
                 </div>
                 <button
                     type="button"
@@ -53,7 +43,16 @@ export default function Main(props) {
                 ></button>
             </section>
             <section className="elements">
-                {cards.map((card) => { return (<Card key={card._id} card={card} onCardClick={props.onCardClick} />) })}
+                {props.cards.map((card) => {
+                    return (
+                        <Card
+                            key={card._id}
+                            card={card}
+                            onCardClick={props.onCardClick}
+                            onCardLike={props.onCardLike}
+                            onCardDelete={props.onCardDelete}
+                        />)
+                })}
             </section>
         </main>
     )

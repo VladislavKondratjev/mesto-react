@@ -10,7 +10,6 @@ export default function PopupWithForm(props) {
                     action="#"
                     name={`${props.name}`}>
                     {props.children}
-
                 </form>
             </div>
         </div>
