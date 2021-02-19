@@ -29,10 +29,10 @@ export default function Card(props) {
     return (
         <article className="element">
             <img className="element__photo" alt={props.card.name} src={props.card.link} onClick={handleClick} />
-            <button type="button" className={`${cardDeleteButtonClassName} button`} onClick={handleDeleteClick}></button>
+            <button type="button" className={`${cardDeleteButtonClassName} button`} onClick={handleDeleteClick} />
             <div className="element__info">
                 <h2 className="element__place">{props.card.name}</h2>
-                <button type="button" className={`${cardLikeButtonClassName} button`} onClick={handleLikeClick}></button>
+                <button type="button" className={`${cardLikeButtonClassName} button`} onClick={handleLikeClick} />
                 <span className="element__likes">{props.card.likes.length}</span>
             </div>
         </article>

@@ -8,9 +8,6 @@ import EditAvatarPopup from './EditAvatarPopup';
 import CurrentUserContext from '../contexts/CurrentUserContext'
 import { api } from "../utils/api";
 import AddPlacePopup from './AddPlacePopup';
-//import PopupWithForm from './PopupWithForm.js'
-
-
 
 export default function App() {
   const [isEditAvatarPopupOpen, setAvatarIsOpen] = React.useState(false);
@@ -19,7 +16,6 @@ export default function App() {
   const [selectedCard, setSelectedCard] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState(CurrentUserContext);
   const [cards, setCards] = React.useState([]);
-  //const [confirmIsOpen, setConfirmIsOpen] = React.useState(false);
 
   function handleEditAvatarClick() {
     setAvatarIsOpen(true)
@@ -144,17 +140,6 @@ export default function App() {
             isOpen={isAddPlacePopupOpen}
             onClose={closeAllPopups}
             onAddPlace={handleAddPlaceSubmit} />
-          {/* <PopupWithForm title="Вы уверены?" name="confirm" isOpen={confirmIsOpen} onClose={closeAllPopups}>
-            <div className="popup__form">
-              <h3 className="popup__title popup__title_type_confirm">Вы уверены?</h3>
-              <button
-                type="submit"
-                className="popup__submit-button button delete-card"
-              >
-                Да
-            </button>
-            </div>
-          </PopupWithForm> */}
         </div>
       </div >
     </CurrentUserContext.Provider>
