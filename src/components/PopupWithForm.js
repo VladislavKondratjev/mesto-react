@@ -5,6 +5,7 @@ export default function PopupWithForm(props) {
                 <button type="button" className="popup__close-button button" onClick={props.onClose}></button>
                 <h3 className="popup__title">{`${props.title}`}</h3>
                 <form
+                    onSubmit={props.onSubmit}
                     className="popup__form"
                     method="PATCH"
                     action="#"
