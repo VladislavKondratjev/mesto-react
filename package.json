@@ -1,8 +1,5 @@
 {
-  "author": {
-    "name": "Vladislav Kondratjev",
-    "link": "https://github.com/VladislavKondratjev"
-  },
+  "author": "Vladislav Kondratjev (https://github.com/VladislavKondratjev)",
   "description": "Фронтенд проекта Mesto на React.",
   "name": "mesto-react",
   "version": "0.1.0",
