@@ -2,13 +2,13 @@ import React from 'react';
 import Header from './Header.js'
 import Footer from './Footer.js'
 import Main from './Main.js'
-//import PopupWithForm from './PopupWithForm.js'
 import EditProfilePopup from './EditProfilePopup.js'
 import ImagePopup from './ImagePopup.js'
 import EditAvatarPopup from './EditAvatarPopup';
-import  CurrentUserContext  from '../constexts/CurrentUserContext'
+import CurrentUserContext from '../constexts/CurrentUserContext'
 import { api } from "../utils/api";
 import AddPlacePopup from './AddPlacePopup';
+//import PopupWithForm from './PopupWithForm.js'
 
 
 
@@ -16,10 +16,10 @@ export default function App() {
   const [isEditAvatarPopupOpen, setAvatarIsOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setAddIsOpen] = React.useState(false);
   const [isEditProfilePopupOpen, setEditIsOpen] = React.useState(false);
-  //const [confirmIsOpen, setConfirmIsOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState(false);
-  const [currentUser, setCurrentUser] = React.useState('');
+  const [currentUser, setCurrentUser] = React.useState(CurrentUserContext);
   const [cards, setCards] = React.useState([]);
+  //const [confirmIsOpen, setConfirmIsOpen] = React.useState(false);
 
   function handleEditAvatarClick() {
     setAvatarIsOpen(true)
